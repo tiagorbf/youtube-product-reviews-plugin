@@ -1,0 +1,25 @@
+{
+  "name": "Video Reviews For Buying Online",
+  "version": "1.0.10",
+  "description": "While checking an online store this plugin connects you with relevant review videos that will help you make a good decision",
+  "manifest_version": 2,
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["extensions/content.js"],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ],
+  "browser_action": {
+    "default_icon" : "icon.png"
+  },
+  "web_accessible_resources": ["icon.png", "youtube.png"],
+  "icons" : {
+    "32" : "icon.png",
+    "48" : "icon_48.png"
+  }
+}
