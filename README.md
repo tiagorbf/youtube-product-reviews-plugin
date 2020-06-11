@@ -1,4 +1,4 @@
-# youtube-product-reviews-plugin
+# Youtube product reviews plugin
 
 This is a simple yet very useful chrome plugin for people that frequently buy online. 
 Every time you open a product page in one of the supported online stores it links the product title with reviews on youtube and displays a youtube button on the page, that way you can easily click and access relevant youtube reviews.
