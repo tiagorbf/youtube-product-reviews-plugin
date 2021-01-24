@@ -9,6 +9,15 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
+      "include_globs": [
+        "*://*.amazon.*/*",
+        "*://*.thomann.*/*",
+        "*://*.musicstore.*/*",
+        "*://*.ebay.*/*",
+        "*://*.etsy.*/*",
+        "*://*.royalqueenseeds.*/*",
+        "*://*.alibaba.*/*"
+      ],
       "js": ["extensions/content.js"],
       "all_frames": true,
       "run_at": "document_start"
