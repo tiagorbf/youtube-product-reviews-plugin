@@ -13,6 +13,9 @@ Every time you open a product page in one of the supported online stores it link
 * 2 - Navigate to chrome://extensions
 * 3 - Click on Load unpacked and select the repo folder
 
+And it is also available on the chrome store:
+https://chrome.google.com/webstore/detail/video-reviews-for-buying/epffndbljlnghnfjomejlojlmikegfod?hl=en-GB&authuser=0
+
 
 # Supported online stores
 
