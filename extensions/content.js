@@ -1,3 +1,4 @@
+
 function getElement(productTitle){
     var youtubeUrl = "https://www.youtube.com/results?search_query=" + productTitle + "+incelemesi";
 
@@ -63,16 +64,36 @@ function appendByClassName(productTitle, className){
     return document.getElementsByClassName(className)[0] && document.getElementsByClassName(className)[0].appendChild(getElement(productTitle));
 }
 
+const GET_BY_ID = "getByID"
+const GET_BY_ID_AND_TAG = "getByIDAndTag"
+const GET_BY_QUERY_SELECTOR = "getByQuerySelector"
+const GET_BY_CLASS = "getByClass"
+
+const INSERT_BY_CLASS = "insertByClass"
+const INSERT_BY_ID = "insertByID"
+
+function insertButton(getType, getArgs, insertType, insertArg){
+    let productTitle
+    switch(getType){
+        case GET_BY_ID: productTitle = productTitle = getTitleById(getArgs[0])
+        case GET_BY_ID_AND_TAG: productTitle = getTitleByIdAndTag(getArgs[0], getArgs[1])
+        case GET_BY_QUERY_SELECTOR: productTitle = getTitleByQuerySelector(getArgs[0])
+        case GET_BY_CLASS: productTitle = getTitleByClass(getArgs[0])
+    }
+
+    if(productTitle == undefined) return
+    
+    switch(insertType){
+        case INSERT_BY_CLASS: insertBeforeByClass(productTitle, insertArg)
+        case INSERT_BY_ID: insertBeforeById(productTitle, insertArg)
+    }
+
+}
+
 function run(){
     var productTitle = "";
-    
     if(window.location.host.includes("trendyol")){
-        productTitle = getTitleByIdAndTag("pr-new-br","span");
-        console.log("ptitle: " + productTitle);
-        if(productTitle == undefined){
-            return;
-        }
-        insertBeforeByClass(productTitle, "pr-in-ratings");
+        insertButton(GET_BY_ID_AND_TAG, ["pr-new-br","span"], INSERT_BY_CLASS, "pr-in-ratings")
     }
 
     if (window.location.host.includes("amazon")){

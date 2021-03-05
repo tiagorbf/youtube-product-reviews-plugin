@@ -1,7 +1,7 @@
 {
-  "name": "Video Reviews For Buying Online",
+  "name": "Youtube İnceleme Butonu",
   "version": "1.0.10",
-  "description": "While checking an online store this plugin connects you with relevant review videos that will help you make a good decision",
+  "description": "Artık almak istediğiniz ürünün Youtube incelemelerine bir tuş ile ulaşabilirsiniz! Amazon, Trendyol, HepsiBurada ve gittigidiyor'u desteklemektedir.",
   "manifest_version": 2,
   "permissions": [
     "activeTab"
