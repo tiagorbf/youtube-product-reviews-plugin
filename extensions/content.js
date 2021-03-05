@@ -1,5 +1,5 @@
 function getElement(productTitle){
-    var youtubeUrl = "https://www.youtube.com/results?search_query=" + productTitle + "+review";
+    var youtubeUrl = "https://www.youtube.com/results?search_query=" + productTitle + "+incelemesi";
 
     var div = document.createElement('div');
     div.style.cursor = "pointer";
@@ -18,7 +18,7 @@ function getElement(productTitle){
     span.style.marginTop = "4px";
     span.style.position = "absolute";
 
-    var text = document.createTextNode("Youtube Reviews");
+    var text = document.createTextNode("Youtube İncelemeleri");
 
     div.appendChild(img);
     span.appendChild(text);
@@ -65,6 +65,15 @@ function appendByClassName(productTitle, className){
 
 function run(){
     var productTitle = "";
+    
+    if(window.location.host.includes("trendyol")){
+        productTitle = getTitleByIdAndTag("pr-new-br","span");
+        console.log("ptitle: " + productTitle);
+        if(productTitle == undefined){
+            return;
+        }
+        insertBeforeByClass(productTitle, "pr-in-ratings");
+    }
 
     if (window.location.host.includes("amazon")){
         productTitle = getTitleById("productTitle");

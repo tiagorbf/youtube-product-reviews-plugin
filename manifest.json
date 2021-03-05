@@ -16,7 +16,8 @@
         "*://*.ebay.*/*",
         "*://*.etsy.*/*",
         "*://*.royalqueenseeds.*/*",
-        "*://*.alibaba.*/*"
+        "*://*.alibaba.*/*",
+        "*://*.trendyol.*/*"
       ],
       "js": ["extensions/content.js"],
       "all_frames": true,
