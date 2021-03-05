@@ -75,84 +75,29 @@ const INSERT_BY_ID = "insertByID"
 function insertButton(getType, getArgs, insertType, insertArg){
     let productTitle
     switch(getType){
-        case GET_BY_ID: productTitle = productTitle = getTitleById(getArgs[0])
-        case GET_BY_ID_AND_TAG: productTitle = getTitleByIdAndTag(getArgs[0], getArgs[1])
-        case GET_BY_QUERY_SELECTOR: productTitle = getTitleByQuerySelector(getArgs[0])
-        case GET_BY_CLASS: productTitle = getTitleByClass(getArgs[0])
+        case GET_BY_ID: productTitle = productTitle = getTitleById(getArgs[0]); break;
+        case GET_BY_ID_AND_TAG: productTitle = getTitleByIdAndTag(getArgs[0], getArgs[1]); break;
+        case GET_BY_QUERY_SELECTOR: productTitle = getTitleByQuerySelector(getArgs[0]); break;
+        case GET_BY_CLASS: productTitle = getTitleByClass(getArgs[0]); break;
     }
 
     if(productTitle == undefined) return
-    
+
     switch(insertType){
-        case INSERT_BY_CLASS: insertBeforeByClass(productTitle, insertArg)
-        case INSERT_BY_ID: insertBeforeById(productTitle, insertArg)
+        case INSERT_BY_CLASS: return insertBeforeByClass(productTitle, insertArg)
+        case INSERT_BY_ID: return insertBeforeById(productTitle, insertArg)
     }
 
 }
 
 function run(){
-    var productTitle = "";
     if(window.location.host.includes("trendyol")){
-        insertButton(GET_BY_ID_AND_TAG, ["pr-new-br","span"], INSERT_BY_CLASS, "pr-in-ratings")
-    }
-
-    if (window.location.host.includes("amazon")){
-        productTitle = getTitleById("productTitle");
-        if (productTitle == undefined){
-            return;
-        }
-        insertBeforeById(productTitle, "desktop_unifiedPrice") || insertBeforeById(productTitle, "price") || insertBeforeById(productTitle, "priceblock_ourprice_row");
-    }
-
-    if(window.location.host.includes("thomann")){
-        productTitle = getTitleByIdAndTag("rs-prod-headline", "h1");
-        if (productTitle == undefined){
-            return;
-        }
-        insertBeforeByClass(productTitle, "rs-prod-media-gallery");
-    }
-
-    if(window.location.host.includes("musicstore")){
-        productTitle = getTitleByQuerySelector("[property='og:title']")
-        if (productTitle == undefined){
-            return;
-        }
-        appendByClassName(productTitle, "shortdescription")
-    }
-
-    if (window.location.host.includes("ebay")){
-        productTitle = getTitleById("itemTitle");
-        if (productTitle == undefined){
-            return;
-        }
-        insertBeforeById(productTitle, "vi-lkhdr-itmTitl");
-    }
-
-    if (window.location.host.includes("etsy")){
-        productTitle = getTitleByIdAndTag("listing-page-title-component", "h1");
-        if (productTitle == undefined){
-            return;
-        }
-        insertBeforeByClass(productTitle + '+etsy', "listing-page-title-component");
-    }
-
-    if(window.location.host.includes("royalqueenseeds")){
-        productTitle = getTitleByClass("product-title")
-        if (productTitle == undefined){
-            return;
-        }
-        appendByClassName(productTitle, "short-description-block")
-    }
-
-    if(window.location.host.includes("alibaba")){
-        setTimeout(function(){
-            productTitle = getTitleByClass("ma-title");
-            if (productTitle == undefined){
-                return;
-            }
-            insertBeforeByClass(productTitle, "assurance-item item-ta");
-        }, 5000);
-    }
+        insertButton(GET_BY_ID_AND_TAG, ["pr-new-br","span"], INSERT_BY_CLASS, "pr-in-ratings");
+    }else if(window.location.host.includes("amazon")){
+        insertButton(GET_BY_ID, ["productTitle"], INSERT_BY_ID, "desktop_unifiedPrice") ||
+        insertButton(GET_BY_ID, ["productTitle"], INSERT_BY_ID, "price") ||
+        insertButton(GET_BY_ID, ["productTitle"], INSERT_BY_ID, "priceblock_ourprice_row")
+    }   
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
