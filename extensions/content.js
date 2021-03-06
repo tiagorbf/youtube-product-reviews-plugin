@@ -1,5 +1,23 @@
+function getTranslation(key){
+    const translations = {
+        en: {
+            review: "review",
+            youtubeReviews: "Youtube Reviews"
+        },
+        tr: {
+            review: "incelemesi",
+            youtubeReviews: "Youtube İncelemeleri"
+        }
+    }
+    const userLanguage = navigator.language;
+
+    const pluginLanguage =  Object.keys(translations).includes(userLanguage)? userLanguage : "en"
+
+    return translations[pluginLanguage][key]
+}
+
 function getElement(productTitle){
-    var youtubeUrl = "https://www.youtube.com/results?search_query=" + productTitle + "+review";
+    var youtubeUrl = "https://www.youtube.com/results?search_query=" + productTitle + "+" + getTranslation("review");
 
     var div = document.createElement('div');
     div.style.cursor = "pointer";
@@ -18,7 +36,7 @@ function getElement(productTitle){
     span.style.marginTop = "4px";
     span.style.position = "absolute";
 
-    var text = document.createTextNode("Youtube Reviews");
+    var text = document.createTextNode(getTranslation("youtubeReviews"));
 
     div.appendChild(img);
     span.appendChild(text);
