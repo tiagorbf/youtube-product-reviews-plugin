@@ -132,6 +132,14 @@ function run(){
         appendByClassName(productTitle, "short-description-block")
     }
 
+    if(window.location.host.includes("bestbuy")){
+        productTitle = getTitleByClass("sku-title")
+        if (productTitle == undefined){
+            return;
+        }
+        insertBeforeByClass(productTitle, "shop-media-gallery")
+    }
+
     if(window.location.host.includes("alibaba")){
         setTimeout(function(){
             productTitle = getTitleByClass("ma-title");
