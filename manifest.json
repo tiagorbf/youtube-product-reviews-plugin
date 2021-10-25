@@ -1,6 +1,6 @@
 {
   "name": "Video Reviews For Buying Online",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "description": "While checking an online store this plugin connects you with relevant review videos that will help you make a good decision",
   "manifest_version": 2,
   "permissions": [
@@ -17,7 +17,8 @@
         "*://*.etsy.*/*",
         "*://*.royalqueenseeds.*/*",
         "*://*.alibaba.*/*",
-        "*://*.bestbuy.*/*"
+        "*://*.bestbuy.*/*",
+        "*://*.ikea.*/*"
       ],
       "js": ["extensions/content.js"],
       "all_frames": true,

@@ -149,6 +149,16 @@ function run(){
             insertBeforeByClass(productTitle, "assurance-item item-ta");
         }, 5000);
     }
+
+    if(window.location.host.includes("ikea")){
+        setTimeout(function(){
+            productTitle = getTitleByClass("range-revamp-header-section__title--big");
+            if (productTitle == undefined){
+                return;
+            }
+            insertBeforeByClass(productTitle, "range-revamp-product-variation-section__button");
+        }, 5000);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
