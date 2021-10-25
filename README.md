@@ -29,6 +29,7 @@ Every time you open a product page in one of the supported online stores it link
 * etsy
 * royalqueenseeds
 * alibaba
+* ikea
 
 # Contribute
 
